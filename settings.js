@@ -51,7 +51,7 @@
 //
 var server = null;
 
-server = "http://seeit-janus.b9hkfecabyd9fah8.germanywestcentral.azurecontainer.io:8088/janus";
+server = "http://seeit-janus.b9hkfecabyd9fah8.germanywestcentral.azurecontainer.io:8088/janus/";
 
 
 // When creating a Janus object, we can also specify which STUN/TURN
