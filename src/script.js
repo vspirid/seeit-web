@@ -64,10 +64,15 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const clock = new THREE.Clock();
 let previousTime = 0;
+const text = document.getElementById('companyName')
+
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
   const deltaTime = elapsedTime - previousTime;
+  if (text.style.opacity < 1)
+    text.style.opacity = elapsedTime * 0.2
+  
   previousTime = elapsedTime;
   camera.position.y = -(scrollY / sizes.height) * objectsDistance;
   const paralaxX = cursor.x * 0.5;
@@ -86,11 +91,11 @@ let scrollY = window.scrollY;
 
 const fillCanvas = () => {
   const mesh1 = new THREE.Mesh(
-    new THREE.TorusKnotGeometry(1, 1.35, 100, 16),
+    new THREE.TorusKnotGeometry(0.75, 0.55, 100, 24),
     material,
   );
   
-  //mesh1.position.x = 2;
+  mesh1.position.x = 2;
   sectionMeshes.push(mesh1);
   scene.add(mesh1);
   const directionalLight = new THREE.DirectionalLight("white", 1);
