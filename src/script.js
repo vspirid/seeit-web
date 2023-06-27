@@ -71,7 +71,7 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
   const deltaTime = elapsedTime - previousTime;
   if (text.style.opacity < 1)
-    text.style.opacity = elapsedTime * 0.2
+    text.style.opacity = elapsedTime * 0.1
   
   previousTime = elapsedTime;
   camera.position.y = -(scrollY / sizes.height) * objectsDistance;
