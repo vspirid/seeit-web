@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 
 const parameters = {
   materialColor: "#e59494",
@@ -24,6 +25,17 @@ const sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
+
+const rgbeLoader = new RGBELoader();
+rgbeLoader.load("/mud.hdr", (environmentMap) => {
+  environmentMap.mapping = THREE.EquirectangularReflectionMapping;
+
+  scene.background = environmentMap;
+  scene.environment = environmentMap;
+  //scene.backgroundBlurriness = 0.2;
+  //scene.backgroundIntensity = 0.1;
+  
+});
 
 window.addEventListener("resize", () => {
   // Update sizes
@@ -95,7 +107,7 @@ const fillCanvas = () => {
     material,
   );
   
-  mesh1.position.x = 2;
+  mesh1.position.x = 1.5;
   sectionMeshes.push(mesh1);
   scene.add(mesh1);
   const directionalLight = new THREE.DirectionalLight("white", 1);

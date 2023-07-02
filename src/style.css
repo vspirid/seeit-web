@@ -30,9 +30,8 @@ body {
   text-align: center;
   height: 100vh;
   position: relative;
-  font-family: "PT Sans", Calibri, Tahoma, sans-serif;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: #ffffff;
-  text-transform: uppercase;
   font-size: 13vmin;
   padding-left: 10%;
   padding-right: 10%;
