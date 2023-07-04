@@ -29,11 +29,9 @@ const sizes = {
 const rgbeLoader = new RGBELoader();
 rgbeLoader.load("/mud.hdr", (environmentMap) => {
   environmentMap.mapping = THREE.EquirectangularReflectionMapping;
-
   scene.background = environmentMap;
   scene.environment = environmentMap;
-  //scene.backgroundBlurriness = 0.2;
-  //scene.backgroundIntensity = 0.1;
+  scene.backgroundIntensity = 0.6;
   
 });
 
@@ -82,8 +80,8 @@ const text = document.getElementById('logo')
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
   const deltaTime = elapsedTime - previousTime;
-  //if (text.style.opacity < 1)
-    //text.style.opacity = elapsedTime * 0.1
+  if (text.style.opacity < 1)
+    text.style.opacity = elapsedTime * 0.1
   
   previousTime = elapsedTime;
   camera.position.y = -(scrollY / sizes.height) * objectsDistance;
@@ -103,16 +101,17 @@ let scrollY = window.scrollY;
 
 const fillCanvas = () => {
   const mesh1 = new THREE.Mesh(
-    new THREE.TorusKnotGeometry(0.75, 0.55, 100, 24),
+    new THREE.TorusKnotGeometry(0.75, 0.5, 128, 32),
     material,
   );
   
-  //mesh1.position.x = 1.5;
   sectionMeshes.push(mesh1);
   scene.add(mesh1);
-  const directionalLight = new THREE.DirectionalLight("white", 1);
+  const directionalLight = new THREE.DirectionalLight("#e59494", 1);
   directionalLight.position.set(1, 1, 1);
   scene.add(directionalLight);
+  const ambientLight = new THREE.AmbientLight('#FFFFFF', 1)
+  scene.add(ambientLight)
 };
 
 fillCanvas();
