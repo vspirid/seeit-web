@@ -76,14 +76,14 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const clock = new THREE.Clock();
 let previousTime = 0;
-const text = document.getElementById('companyName')
+const text = document.getElementById('logo')
 
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
   const deltaTime = elapsedTime - previousTime;
-  if (text.style.opacity < 1)
-    text.style.opacity = elapsedTime * 0.1
+  //if (text.style.opacity < 1)
+    //text.style.opacity = elapsedTime * 0.1
   
   previousTime = elapsedTime;
   camera.position.y = -(scrollY / sizes.height) * objectsDistance;
@@ -107,7 +107,7 @@ const fillCanvas = () => {
     material,
   );
   
-  mesh1.position.x = 1.5;
+  //mesh1.position.x = 1.5;
   sectionMeshes.push(mesh1);
   scene.add(mesh1);
   const directionalLight = new THREE.DirectionalLight("white", 1);

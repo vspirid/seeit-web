@@ -8,8 +8,8 @@ html {
 }
 
 body {
-  overflow: hidden; /* Hide scrollbars */
-  user-select: none
+  overflow: hidden;
+  user-select: none;
 }
 
 .webgl {
@@ -19,25 +19,11 @@ body {
   outline: none;
 }
 
-@font-face {
-  font-family: "my_custom_font";
-  src: url("./fonts/font.json") format("opentype");
-}
-
-.section {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
+.logo {
   position: relative;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Roboto Mono', monospace;
   color: #ffffff;
-  font-size: 13vmin;
-  padding-left: 10%;
-  padding-right: 10%;
-  
-}
-
-section:nth-child(odd) {
-  justify-content: flex-end;
+  font-size: 3vmin;
+  padding-left: 2%;
+  padding-top: 1%;
 }
