@@ -21,7 +21,7 @@ export default class Donut {
   }
 
   setGeometry() {
-    this.geometry = new THREE.TorusGeometry(0.1, 0.01);
+    this.geometry = new THREE.CapsuleGeometry(0.1, 0.01);
   }
 
   setTextures() {}
@@ -37,7 +37,6 @@ export default class Donut {
     this.scene.add(this.mesh);
   }
   update() {
-    this.mesh.rotation.x = this.time.elapsed * 0.0001;
-    this.mesh.rotation.y = this.time.elapsed * 0.0001;
+    //this.mesh.rotation.x += 0.001
   }
 }
