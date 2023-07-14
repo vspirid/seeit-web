@@ -3,6 +3,7 @@ import Environment from './Environment.js'
 import Floor from './Floor.js'
 import Fox from './Fox.js'
 import Torus from './Torus.js'
+import Donut from './Donut.js'
 
 export default class World
 {
@@ -15,18 +16,16 @@ export default class World
         this.resources.on('ready', () =>
         {
             // Setup
-            this.torus = new Torus()
-            //this.floor = new Floor()
-            //this.fox = new Fox()
+            this.donut = new Donut(-0.5)
+            this.donut = new Donut(0)
+            this.donut = new Donut(0.5)
             this.environment = new Environment()
         })
     }
 
     update()
     {
-        if(this.fox)
-            this.fox.update()
-        if(this.torus)
-            this.torus.update()
+        if(this.donut)
+            this.donut.update()
     }
 }
