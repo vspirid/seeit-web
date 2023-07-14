@@ -16,17 +16,15 @@ export default class Donut {
   }
 
   position(positionX) {
-    this.mesh.position.x = positionX
-    this.mesh.position.y = 0.5
+    this.mesh.position.x = positionX;
+    this.mesh.position.y = 0.5;
   }
 
   setGeometry() {
     this.geometry = new THREE.TorusGeometry(0.1, 0.01);
   }
 
-  setTextures() {
-    
-  }
+  setTextures() {}
 
   setMaterial() {
     this.material = new THREE.MeshBasicMaterial({
@@ -39,6 +37,7 @@ export default class Donut {
     this.scene.add(this.mesh);
   }
   update() {
-    
+    this.mesh.rotation.x = this.time.elapsed * 0.0001;
+    this.mesh.rotation.y = this.time.elapsed * 0.0001;
   }
 }
