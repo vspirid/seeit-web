@@ -17,11 +17,13 @@ export default class HTML {
     switch (stage) {
       case 0:
         gsap.to(".logo", { y: 0, opacity: 1, duration: 1 })
-        gsap.to(".footer", { y: 0, opacity: 1, duration: 1 })
+        gsap.to(".footer", { opacity: 1, duration: 1 })
+        console.log(this.experience.camera.instance.position)
         break;
       case 1:
         gsap.to(".logo", { y: -500, opacity: 0, duration: 1 })
-        gsap.to(".footer", { y: 200, opacity: 0, duration: 1 })
+        gsap.to(".footer", { opacity: 0, duration: 1 })
+        console.log(this.experience.camera.instance.position)
         break;
       default:
         console.log("default");
