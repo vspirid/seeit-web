@@ -18,7 +18,7 @@ export default class Wheel extends EventEmitter {
     this.eventNameMobile = "scroll";
     this.preventDefault = true;
 
-    console.log('ATTACHING');
+    console.log("ATTACHING");
 
     document.addEventListener(this.eventName, this.onMouseWheel, {
       passive: false,
@@ -29,6 +29,7 @@ export default class Wheel extends EventEmitter {
   }
 
   onMouseWheel(event) {
+    console.log("onMouseWheel");
     this.triggered = false;
 
     if (this.preventDefault) event.preventDefault();
@@ -49,7 +50,6 @@ export default class Wheel extends EventEmitter {
       //  console.log('triggeredByIncrease', triggeredByIncrease)
       //  console.log('_direction', _direction)
 
-      
       _stage += _direction;
       if (_stage < 0) _stage = 0;
       //console.log(_stage);
