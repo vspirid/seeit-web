@@ -7,9 +7,11 @@ import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
 import World from "./World/World.js";
 import Resources from "./Utils/Resources.js";
+import Wheel from "./Utils/Wheel.js";
+
 import sources from "./sources.js";
 import SeeitRayCaster from "./Utils/RayCaster.js";
-import Mouse from './Utils/Mouse.js'
+import Mouse from "./Utils/Mouse.js";
 
 let instance = null;
 
@@ -31,14 +33,15 @@ export default class Experience {
     this.debug = new Debug();
     this.sizes = new Sizes();
     this.time = new Time();
+    this.wheel = new Wheel();
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.camera = new Camera();
     this.mouse = new Mouse();
     this.renderer = new Renderer();
     this.world = new World();
+
     this.raycaster = new SeeitRayCaster();
-    
 
     // Resize event
     this.sizes.on("resize", () => {
@@ -48,6 +51,21 @@ export default class Experience {
     // Time tick event
     this.time.on("tick", () => {
       this.update();
+    });
+
+    this.wheel.on("wheel", (stage) => {
+      switch (stage) {
+        case 0:
+          console.log(0);
+          break;
+        case 1:
+          console.log("1");
+          break;
+        default:
+          console.log("default");
+          break;
+      }
+      console.log("wheeeeeel " + stage);
     });
   }
 
