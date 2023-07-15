@@ -7,8 +7,6 @@ import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
 import World from "./World/World.js";
 import Resources from "./Utils/Resources.js";
-import Wheel from "./Utils/Wheel.js";
-
 import sources from "./sources.js";
 import SeeitRayCaster from "./Utils/RayCaster.js";
 import Mouse from './Utils/Mouse.js'
@@ -39,7 +37,6 @@ export default class Experience {
     this.mouse = new Mouse();
     this.renderer = new Renderer();
     this.world = new World();
-    this.wheel = new Wheel();
     this.raycaster = new SeeitRayCaster();
     
 
@@ -52,10 +49,6 @@ export default class Experience {
     this.time.on("tick", () => {
       this.update();
     });
-
-    this.wheel.on("wheel", (stage) => {
-      console.log('wheeeeeel ' + stage)
-    })
   }
 
   resize() {
