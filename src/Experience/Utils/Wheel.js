@@ -21,8 +21,12 @@ export default class Wheel extends EventEmitter {
       passive: false,
     });
 
-    window.addEventListener("touchend", () => {
-      console.log("touchend");
+    window.addEventListener("touchstart", (event) => {
+      console.log("touchstart " + event);
+    });
+
+    window.addEventListener("touchend", (event) => {
+      console.log("touchend " + event);
     });
   }
 
