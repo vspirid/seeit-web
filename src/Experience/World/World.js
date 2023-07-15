@@ -11,6 +11,7 @@ export default class World {
     // Wait for resources
     this.resources.on("ready", () => {
       // Setup
+      /*
       this.donut1 = new Donut(-0.5);
       this.donut2 = new Donut(0);
       this.donut3 = new Donut(0.5);
@@ -19,6 +20,7 @@ export default class World {
         this.donut2.mesh,
         this.donut3.mesh,
       ];
+      */
       this.environment = new Environment();
     });
   }

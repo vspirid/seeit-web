@@ -21,7 +21,7 @@ body {
 
 .logo {
   position: absolute;
-  top: 25%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -29,13 +29,25 @@ body {
 .title {
   font-family: 'Roboto Mono', monospace;
   color: #484848;
-  font-size: 11vmin;
+  font-size: 13vmin;
   text-align: center;
 }
 
 .subtitle {
   font-family: 'Roboto Mono', monospace;
   color: #484848;
-  font-size: 2vmin;
+  font-size: 4vmin;
   text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto Mono', monospace;
+  color: #484848;
+  font-size: 3vmin;
+  padding-bottom: 2%;
 }
