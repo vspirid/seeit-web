@@ -43,11 +43,11 @@ export default class Wheel extends EventEmitter {
       //  console.log('triggeredByIncrease', triggeredByIncrease)
       //  console.log('_direction', _direction)
 
-      this.onWheel(_direction);
+      
       _stage += _direction;
       if (_stage < 0) _stage = 0;
       //console.log(_stage);
-
+      this.onWheel(_stage);
       _recentlyTriggered = true;
 
       // Clear current timeout
@@ -120,8 +120,8 @@ export default class Wheel extends EventEmitter {
     return result;
   }
 
-  onWheel(direction) {
-    this.trigger("wheel", [direction]);
+  onWheel(stage) {
+    this.trigger("wheel", [stage]);
   }
 
   destructor() {

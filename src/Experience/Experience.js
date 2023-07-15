@@ -52,6 +52,10 @@ export default class Experience {
     this.time.on("tick", () => {
       this.update();
     });
+
+    this.wheel.on("wheel", (stage) => {
+      console.log('wheeeeeel ' + stage)
+    })
   }
 
   resize() {
