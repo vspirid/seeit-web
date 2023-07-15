@@ -57,6 +57,7 @@ export default class Experience {
 
     this.wheel.on("wheel", (stage) => {
       this.html.update(stage)
+      this.world.updateStage(stage)
     });
   }
 
@@ -67,8 +68,8 @@ export default class Experience {
 
   update() {
     this.camera.update();
-    this.world.update();
     this.renderer.update();
+    this.world.update();
   }
 
   destroy() {
