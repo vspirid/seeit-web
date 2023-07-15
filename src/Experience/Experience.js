@@ -12,6 +12,7 @@ import Wheel from "./Utils/Wheel.js";
 import sources from "./sources.js";
 import SeeitRayCaster from "./Utils/RayCaster.js";
 import Mouse from "./Utils/Mouse.js";
+import HTML from "./World/HTML.js";
 
 let instance = null;
 
@@ -40,6 +41,7 @@ export default class Experience {
     this.mouse = new Mouse();
     this.renderer = new Renderer();
     this.world = new World();
+    this.html = new HTML();
 
     this.raycaster = new SeeitRayCaster();
 
@@ -54,18 +56,7 @@ export default class Experience {
     });
 
     this.wheel.on("wheel", (stage) => {
-      switch (stage) {
-        case 0:
-          console.log(0);
-          break;
-        case 1:
-          console.log("1");
-          break;
-        default:
-          console.log("default");
-          break;
-      }
-      console.log("wheeeeeel " + stage);
+      this.html.update(stage)
     });
   }
 
