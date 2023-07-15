@@ -17,6 +17,7 @@ body {
   top: 0;
   left: 0;
   outline: none;
+  overflow: scroll;
 }
 
 .logo {
@@ -27,14 +28,14 @@ body {
 }
 
 .title {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   color: #484848;
   font-size: 13vmin;
   text-align: center;
 }
 
 .subtitle {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   color: #484848;
   font-size: 4vmin;
   text-align: center;
@@ -46,7 +47,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   color: #484848;
   font-size: 3vmin;
   padding-bottom: 2%;
