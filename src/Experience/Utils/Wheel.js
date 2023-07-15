@@ -32,7 +32,7 @@ export default class Wheel extends EventEmitter {
     console.log("onMouseWheel");
     this.triggered = false;
 
-    if (this.preventDefault) event.preventDefault();
+    //if (this.preventDefault) event.preventDefault();
 
     // Get normalized value
     const normalized = normalizeWheel(event);
