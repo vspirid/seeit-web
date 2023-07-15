@@ -16,14 +16,11 @@ export default class Wheel extends EventEmitter {
     this.onMouseWheel = this.onMouseWheel.bind(this);
     this.eventName = "wheel";
     this.eventNameMobile = "scroll";
-    this.preventDefault = true;
+    //this.preventDefault = true;
 
     console.log("ATTACHING");
 
     document.addEventListener(this.eventName, this.onMouseWheel, {
-      passive: false,
-    });
-    document.addEventListener(this.eventNameMobile, this.onMouseWheel, {
       passive: false,
     });
   }
