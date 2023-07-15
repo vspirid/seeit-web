@@ -38,7 +38,6 @@ export default class Torus {
 
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.rotation.x = -Math.PI * 0.5;
     this.scene.add(this.mesh);
   }
   update() {

@@ -15,16 +15,14 @@ export default class Wheel extends EventEmitter {
     super();
     this.onMouseWheel = this.onMouseWheel.bind(this);
     this.eventName = "wheel";
-    this.eventNameMobile = "scroll";
     this.preventDefault = true;
-
-    console.log("ATTACHING 123");
 
     document.addEventListener(this.eventName, this.onMouseWheel, {
       passive: false,
     });
-    document.addEventListener(this.eventNameMobile, this.onMouseWheel, {
-      passive: false,
+
+    window.addEventListener("touchend", () => {
+      console.log("touchend");
     });
   }
 
@@ -32,7 +30,7 @@ export default class Wheel extends EventEmitter {
     console.log("onMouseWheel");
     this.triggered = false;
 
-    //if (this.preventDefault) event.preventDefault();
+    if (this.preventDefault) event.preventDefault();
 
     // Get normalized value
     const normalized = normalizeWheel(event);
