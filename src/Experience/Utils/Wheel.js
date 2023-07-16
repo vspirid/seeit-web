@@ -12,7 +12,8 @@ let _stage = 0;
 
 let _touchYstart = 0;
 let _touchYend = 0;
-let _touchSense = 0;
+let _touchSense = 50;
+let _measureTouchMove = 0;
 
 export default class Wheel extends EventEmitter {
   constructor() {
@@ -36,9 +37,9 @@ export default class Wheel extends EventEmitter {
   }
 
   consumeTouch() {
-    _touchSense = (_touchYstart - _touchYend) * 1;
+    _measureTouchMove = _touchYstart - _touchYend;
 
-    if (_touchSense < -50 || _touchSense > 50) {
+    if (_measureTouchMove < -_touchSense || _measureTouchMove > _touchSense) {
       if (_touchYend < _touchYstart) {
         _stage++;
         if (_stage < 0) _stage = 0;
