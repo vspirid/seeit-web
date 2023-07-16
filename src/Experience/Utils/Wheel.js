@@ -10,8 +10,9 @@ let _lastTriggerTimeout = null;
 let _recentlyTriggered = false;
 let _stage = 0;
 
-let _touchYstart = 0
-let _touchYend = 0
+let _touchYstart = 0;
+let _touchYend = 0;
+let _touchSense = 0;
 
 export default class Wheel extends EventEmitter {
   constructor() {
@@ -25,31 +26,30 @@ export default class Wheel extends EventEmitter {
     });
 
     window.addEventListener("touchstart", (event) => {
-      _touchYstart = event.touches.touches[0].clientY
-      consumeTouch()
-      console.log("touchstart " + event);
+      _touchYstart = event.changedTouches[0].clientY;
     });
 
     window.addEventListener("touchend", (event) => {
-      _touchYend = event.touches.touches[0].clientY
-      consumeTouch()
-      console.log("touchend " + event);
-    });
-
-    window.addEventListener("touchmove", (event) => {
-      _touchYend = event.touches.touches[0].clientY
-      consumeTouch()
-      console.log("touchmove " + event);
-    });
-
-    window.addEventListener("scroll", (event) => {
-      console.log("scroll " + event);
+      _touchYend = event.changedTouches[0].clientY;
+      this.consumeTouch();
     });
   }
 
   consumeTouch() {
-    console.log("touch start " + _touchYstart)
-    console.log("touch end " + _touchYend)
+    _touchSense = (_touchYstart - _touchYend) * 1;
+
+    if (_touchSense < -50 || _touchSense > 50) {
+      if (_touchYend < _touchYstart) {
+        _stage++;
+        if (_stage < 0) _stage = 0;
+        console.log("scroll up");
+      } else {
+        _stage--;
+        if (_stage < 0) _stage = 0;
+        console.log("scroll down");
+      }
+      this.onWheel(_stage);
+    }
   }
 
   onMouseWheel(event) {
