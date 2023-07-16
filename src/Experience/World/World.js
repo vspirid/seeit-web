@@ -20,21 +20,21 @@ export default class World {
     console.log("update stage " + stage);
     switch (stage) {
       case 0:
+        if (this.hideJob) this.hideJob.kill()
         this.hideJob = gsap.to(this.torus.material, {
           duration: 0.5,
           opacity: 0,
           onStart: () => {
             if (this.showJob)
               this.showJob.kill()
-            // get busy
           },
           onComplete: () => {
-            // free me
             this.torus.animate = false;
           },
         });
         break;
       case 1:
+        if (this.showJob) this.showJob.kill()
         this.showJob = gsap.to(this.torus.material, {
           duration: 2,
           opacity: 1,

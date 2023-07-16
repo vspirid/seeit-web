@@ -10,6 +10,9 @@ let _lastTriggerTimeout = null;
 let _recentlyTriggered = false;
 let _stage = 0;
 
+let _touchYstart = 0
+let _touchYend = 0
+
 export default class Wheel extends EventEmitter {
   constructor() {
     super();
@@ -22,20 +25,31 @@ export default class Wheel extends EventEmitter {
     });
 
     window.addEventListener("touchstart", (event) => {
+      _touchYstart = event.touches.touches[0].clientY
+      consumeTouch()
       console.log("touchstart " + event);
     });
 
     window.addEventListener("touchend", (event) => {
+      _touchYend = event.touches.touches[0].clientY
+      consumeTouch()
       console.log("touchend " + event);
     });
-    
+
     window.addEventListener("touchmove", (event) => {
+      _touchYend = event.touches.touches[0].clientY
+      consumeTouch()
       console.log("touchmove " + event);
     });
 
     window.addEventListener("scroll", (event) => {
       console.log("scroll " + event);
     });
+  }
+
+  consumeTouch() {
+    console.log("touch start " + _touchYstart)
+    console.log("touch end " + _touchYend)
   }
 
   onMouseWheel(event) {
