@@ -30,7 +30,7 @@ export default [
     {
         name: 'envMap',
         type: 'rgbeModel',
-        path: 'env/sky.hdr'
+        path: 'env/mud.hdr'
     },
     {
         name: 'torusGradientTexture',
