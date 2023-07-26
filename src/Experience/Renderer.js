@@ -20,7 +20,7 @@ export default class Renderer
             canvas: this.canvas,
             antialias: true
         })
-        this.instance.useLegacyLights = false
+        this.instance.physicallyCorrectLights = true
         this.instance.toneMapping = THREE.CineonToneMapping
         this.instance.toneMappingExposure = 1.75
         this.instance.shadowMap.enabled = true

@@ -1,6 +1,5 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js'
 import EventEmitter from './EventEmitter.js'
 
 export default class Resources extends EventEmitter
@@ -25,7 +24,6 @@ export default class Resources extends EventEmitter
         this.loaders.gltfLoader = new GLTFLoader()
         this.loaders.textureLoader = new THREE.TextureLoader()
         this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader()
-        this.loaders.rgbeLoader = new RGBELoader()
     }
 
     startLoading()
@@ -63,16 +61,6 @@ export default class Resources extends EventEmitter
                     }
                 )
             }
-            else if(source.type === 'rgbeModel')
-            {
-                this.loaders.rgbeLoader.load(
-                    source.path,
-                    (file) =>
-                    {
-                        this.sourceLoaded(source, file)
-                    }
-                )
-            }
         }
     }
 
@@ -81,6 +69,7 @@ export default class Resources extends EventEmitter
         this.items[source.name] = file
 
         this.loaded++
+
         if(this.loaded === this.toLoad)
         {
             this.trigger('ready')

@@ -1,53 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
+*
+{
+    margin: 0;
+    padding: 0;
 }
 
-html {
-  background: #1e1a20;
+html,
+body
+{
+    overflow: hidden;
 }
 
-body {
-  overflow: hidden;
-  user-select: none;
-}
-
-.webgl {
-  position: fixed;
-  top: 0;
-  left: 0;
-  outline: none;
-}
-
-.logo {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.title {
-  font-family: 'Roboto Mono', monospace;
-  color: #484848;
-  font-size: 13vmin;
-  text-align: center;
-}
-
-.subtitle {
-  font-family: 'Roboto Mono', monospace;
-  color: #484848;
-  font-size: 4vmin;
-  text-align: center;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-family: 'Roboto Mono', monospace;
-  color: #484848;
-  font-size: 3vmin;
-  padding-bottom: 2%;
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
 }
